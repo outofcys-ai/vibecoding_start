@@ -10,6 +10,24 @@
   <div class="container">
     <h1>Latest AI News</h1>
     <div id="news-container"></div>
+
+    <!-- 제휴 문의 폼 -->
+    <div class="contact-section">
+      <h2 class="section-title">제휴 문의</h2>
+      <p class="section-subtitle">AI 뉴스 서비스와 함께할 파트너를 찾습니다.</p>
+      
+      <form action="https://formspree.io/f/mqakejpv" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="email">이메일 주소</label>
+          <input type="email" id="email" name="email" placeholder="example@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="message">문의 내용</label>
+          <textarea id="message" name="message" rows="5" placeholder="문의하실 내용을 입력해주세요." required></textarea>
+        </div>
+        <button type="submit" class="submit-button">문의 보내기</button>
+      </form>
+    </div>
   </div>
 
   <!-- 뉴스 상세 보기 모달 -->
