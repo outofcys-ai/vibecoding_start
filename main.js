@@ -42,13 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // 구글 뉴스 리다이렉션 방지 및 새 창 열림 방지를 위해 iframe 소스 설정
     iframe.src = url;
     modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     modal.style.display = 'none';
     iframe.src = '';
-    document.body.style.overflow = 'auto';
   };
 
   closeButton.addEventListener('click', closeModal);
