@@ -16,14 +16,25 @@
   100% { color: #1a73e8; }
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
+/* 기본 레이아웃 안정화 */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden; /* 가로 스크롤 방지 */
   background-color: #f8f9fa;
   color: #202124;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* 컨테이너로 중앙 정렬 및 스크롤 관리 */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -58,7 +69,6 @@ article:hover {
   box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-/* 뉴스 이미지 영역 */
 .news-image {
   width: 100%;
   height: 200px;
@@ -121,9 +131,9 @@ article:hover h2 {
 .modal-content {
   position: relative;
   background-color: #fff;
-  margin: 1% auto;
+  margin: 2% auto;
   width: 95%;
-  height: 95%;
+  height: 90%;
   border-radius: 20px;
   overflow: hidden;
   animation: fadeInUp 0.4s ease-out;
