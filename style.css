@@ -1,73 +1,104 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rainbow-text {
+  0% { color: #1a73e8; }
+  33% { color: #34a853; }
+  66% { color: #ea4335; }
+  100% { color: #1a73e8; }
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f0f2f5;
-  color: #1c1e21;
+  background-color: #f8f9fa;
+  color: #202124;
 }
 
 h1 {
   text-align: center;
-  color: #1a73e8;
-  margin-bottom: 30px;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
   font-weight: 800;
+  animation: fadeInUp 0.8s ease-out, rainbow-text 5s infinite linear;
 }
 
 #news-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 25px;
 }
 
 /* 뉴스 카드 스타일 */
 article {
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
   overflow: hidden;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
-  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  animation: fadeInUp 0.6s ease-out backwards;
 }
 
 article:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
 /* 뉴스 이미지 영역 */
 .news-image {
   width: 100%;
-  height: 180px;
+  height: 200px;
   background-color: #e9ecef;
   background-size: cover;
   background-position: center;
+  transition: transform 0.5s;
+}
+
+article:hover .news-image {
+  transform: scale(1.1);
 }
 
 .content-wrapper {
-  padding: 16px;
+  padding: 20px;
+  background: white;
+  z-index: 1;
 }
 
-/* 모든 내부 링크 클릭 방지 (카드 전체 클릭이 우선됨) */
 article a {
   pointer-events: none;
-  color: #1a0dab;
+  color: inherit;
   text-decoration: none;
 }
 
 article h2 {
-  margin: 0 0 10px 0;
-  font-size: 1.1rem;
+  margin: 0 0 12px 0;
+  font-size: 1.2rem;
   line-height: 1.4;
+  color: #1a73e8;
+  transition: color 0.3s;
+}
+
+article:hover h2 {
+  color: #d93025;
 }
 
 .description-text {
-  font-size: 0.9rem;
-  color: #4d5156;
+  font-size: 0.95rem;
+  color: #5f6368;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -83,7 +114,8 @@ article h2 {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
 }
 
 .modal-content {
@@ -92,26 +124,31 @@ article h2 {
   margin: 1% auto;
   width: 95%;
   height: 95%;
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+  animation: fadeInUp 0.4s ease-out;
 }
 
 .close-button {
   position: absolute;
-  right: 20px;
-  top: 15px;
-  width: 40px;
-  height: 40px;
+  right: 25px;
+  top: 20px;
+  width: 45px;
+  height: 45px;
   background: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   z-index: 2100;
+  transition: transform 0.2s;
+}
+
+.close-button:hover {
+  transform: rotate(90deg);
 }
 
 #news-frame {

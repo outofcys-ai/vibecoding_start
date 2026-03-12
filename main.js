@@ -62,10 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const articles = await getAINews();
     if (articles.length > 0) {
       newsContainer.innerHTML = '';
-      articles.forEach(article => {
+      articles.forEach((article, index) => {
         const card = document.createElement('article');
+        // 순차적으로 나타나는 효과를 위한 지연 시간 설정
+        card.style.animationDelay = `${index * 0.1}s`;
         
-        // 카드 내부에 이미지와 요약 텍스트 배치
         card.innerHTML = `
           <div class="news-image" style="background-image: url('${article.imageUrl}')"></div>
           <div class="content-wrapper">
